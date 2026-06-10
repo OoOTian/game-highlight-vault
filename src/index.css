@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #f8fafc;
+  background: #07080d;
+  font-family: "Trebuchet MS", "Avenir Next", "Noto Sans SC", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #07080d;
+}
+
+button,
+a,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(56, 248, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 248, 255, 0.07) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 92%);
+}
+
+.scanline {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.08) 1px,
+    transparent 1px,
+    transparent 7px
+  );
+  animation: scan 5s linear infinite;
+}
+
+.panel-glow {
+  box-shadow: 0 0 80px rgba(56, 248, 255, 0.18), inset 0 0 50px rgba(255, 255, 255, 0.03);
+}
+
+.clip-button {
+  clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+}
+
+.text-stroke {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(56, 248, 255, 0.82);
+  text-shadow: 0 0 34px rgba(56, 248, 255, 0.32);
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@keyframes scan {
+  from {
+    transform: translateY(-28px);
+  }
+  to {
+    transform: translateY(28px);
+  }
+}
