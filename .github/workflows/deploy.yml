@@ -29,10 +29,14 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --include=optional
 
       - name: Verify install
-        run: test -d node_modules/react && test -d node_modules/vite && test -d node_modules/lucide-react
+        run: |
+          test -f node_modules/react/package.json
+          test -f node_modules/vite/package.json
+          test -f node_modules/lucide-react/package.json
+          node -e "require.resolve('@rollup/rollup-linux-x64-gnu')"
 
       - name: Build
         run: npm run build
