@@ -29,7 +29,10 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --include=dev
+
+      - name: Check dependencies
+        run: npm ls react react-dom lucide-react typescript vite
 
       - name: Build
         run: npm run build
